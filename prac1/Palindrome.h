@@ -1,9 +1,12 @@
-#include <cstring>
+// Palindrome.h
 
 #ifndef PALINDROME_H
 #define PALINDROME_H
 
-class Palindrome{
+#include <cctype>
+#include <string>
+
+class Palindrome {
 
 private:
   std::string phrase;
