@@ -22,7 +22,7 @@ void Palindrome::removeNonLetters() {
   for (size_t i = 0; i < phrase.length(); i++) {
 
     // erase
-    phrase.at(0);
+    phrase.at(i);
 
   }
 
@@ -46,12 +46,17 @@ void Palindrome::lowerCase() {
 // evaluates whether the phrase is a palindrome
 bool Palindrome::isPalindrome() {
 
-  for (size_t i = 0; i < phrase.length(); i++) {
+	for (size_t i = 0; i < phrase.length()/2; i++) {
 
-    // iterate until middle, compare start against end minus start positions
+    	// iterate until middle, compare start against end minus start positions
+		if (phrase.at(i) != phrase.at(phrase.length() - i)) {
 
-  }
+			return false;
+	
+		}
 
-  return false;
+	}
+
+  	return true;
 
 }

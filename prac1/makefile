@@ -5,7 +5,7 @@ TARGET = main
 
 all: main
 
-main: Palindrome.o
+main: main.o Palindrome.o
 	$(CPC) $(CFLAGS) -o main main.cpp Palindrome.o
 
 Palindrome.o: Palindrome.h
