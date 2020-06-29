@@ -4,11 +4,13 @@
 #define PALINDROME_H
 
 #include <cctype>
+#include <iostream>
 #include <string>
 
 class Palindrome {
 
-private:
+// private:
+public:
   std::string phrase;
 
 public:

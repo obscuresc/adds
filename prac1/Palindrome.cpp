@@ -21,8 +21,13 @@ void Palindrome::removeNonLetters() {
 
   for (size_t i = 0; i < phrase.length(); i++) {
 
-    // erase
-    phrase.at(i);
+	// erase if not alpha
+	if (not (bool) isalpha((int) phrase.at(i))) {
+
+		std::cout << i << std::endl;
+		phrase.erase(i);	
+	
+	}
 
   }
 
