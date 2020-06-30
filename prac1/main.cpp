@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 	palindrome.lowerCase();
 	std::cout << palindrome.phrase << std::endl;
 	
-	//palindrome.isPalindrome() ? std::cout << "Yes" << std::endl : std::cout << "No" << std::endl;
+	palindrome.isPalindrome() ? std::cout << "Yes" << std::endl : std::cout << "No" << std::endl;
 
   return 0;
 }

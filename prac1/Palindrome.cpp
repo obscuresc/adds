@@ -7,8 +7,6 @@ Supports string operations to determine if a phrase is a palindrome.
 
 #include "Palindrome.h"
 
-#define NOT_ALPHA 0
-
 // constructor only requires the phrase to be used for palindrome functions
 Palindrome::Palindrome(std::string sInput) {
 
@@ -22,11 +20,13 @@ void Palindrome::removeNonLetters() {
   for (size_t i = 0; i < phrase.length(); i++) {
 
 	// erase if not alpha
-	if (not (bool) isalpha((int) phrase.at(i))) {
+	if (not isalpha(phrase.at(i))) {
 
-		std::cout << i << std::endl;
-		phrase.erase(i);	
+		phrase.erase(i, 1);	
 	
+		// account for moved string
+		i--;	
+
 	}
 
   }
@@ -36,24 +36,26 @@ void Palindrome::removeNonLetters() {
 // converts all alpha characters in phrase to lower case
 void Palindrome::lowerCase() {
 
-  for (size_t i = 0; i < phrase.length(); i++) {
+	for (size_t i = 0; i < phrase.length(); i++) {
 
-    if (isalpha(phrase.at(i))) {
+		if ((bool) isalpha(phrase.at(i))) {
 
-      phrase.replace(i, (size_t) 1, (const char *) (long) tolower(phrase.at(i)));
+			phrase.replace(i, 1, 1, tolower(phrase.at(i))); 
 
-    }
+		}
 
-  }
+	}
 
 }
 
 // evaluates whether the phrase is a palindrome
 bool Palindrome::isPalindrome() {
 
+	std::cout << phrase.length() << " " << phrase.length()/2 << std::endl;
+    // iterate until middle, compare start against end minus start positions
 	for (size_t i = 0; i < phrase.length()/2; i++) {
 
-    	// iterate until middle, compare start against end minus start positions
+		std::cout << i << std::endl;
 		if (phrase.at(i) != phrase.at(phrase.length() - i)) {
 
 			return false;
