@@ -51,12 +51,11 @@ void Palindrome::lowerCase() {
 // evaluates whether the phrase is a palindrome
 bool Palindrome::isPalindrome() {
 
-	std::cout << phrase.length() << " " << phrase.length()/2 << std::endl;
     // iterate until middle, compare start against end minus start positions
 	for (size_t i = 0; i < phrase.length()/2; i++) {
 
-		std::cout << i << std::endl;
-		if (phrase.at(i) != phrase.at(phrase.length() - i)) {
+		// account for zero indexed string access
+		if (phrase.at(i) != phrase.at(phrase.length() - 1 - i)) {
 
 			return false;
 	
