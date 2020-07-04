@@ -4,6 +4,7 @@
 #define HUMAN_H
 
 #include <cstdlib>
+#include <iostream>
 #include <string>
 
 class human{

@@ -6,7 +6,7 @@ Designed for playing 'Rock, paper, scissors', the human class takes a set number
 
 #include "human.h"
 
-human::getMoves() {
+void human::getMoves() {
 
 	std::string input;
 	std::getline(std::cin, input);
@@ -17,7 +17,7 @@ human::getMoves() {
 	// clear space characters
 	for(int i = 0; i < input.length(); i++) {
 
-		if(input.at(i) = " ") {
+		if(input.at(i)[0] = " ") {
 
 			input.erase(i);
 			i--;
