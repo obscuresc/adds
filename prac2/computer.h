@@ -1,25 +1,24 @@
-// Human.h
+// Computer.h
 
-#ifndef HUMAN_H
-#define HUMAN_H
+#ifndef COMPUTER_H 
+#define COMPUTER_H 
 
 #include <cstdlib>
 #include <iostream>
 #include <string>
 
-class human{
+class computer{
 
 	private:
 
-		unsigned int nMoves;
 		std::string moveSet;
 
 	public:
 
-		void setMoves();
+		computer(unsigned int);
 		std::string getMoves();
 
 };
 
 
-#endif // HUMAN_H include guard
+#endif // COMPUTER_H include guard

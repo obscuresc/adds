@@ -1,15 +1,18 @@
 CC = g++
 
-main: main.o human.o
-	$(CC) -o main.o human.o
+main: main.o human.o computer.o
+	$(CC) -o $@ $^ 
 
-main.o: main.cpp 
+main.o: main.cpp human.h computer.h 
 	$(CC) -c main.cpp
 
-human.o: human.cpp human.h
-	$(CC) -c human.cpp
+human.o: human.cpp 
+	$(CC) -c $^ 
+
+computer.o: computer.cpp 
+	$(CC) -c $^ 
 
 re: clean main
 
 clean:
-	rm *.o main
+	rm -f *.o main
