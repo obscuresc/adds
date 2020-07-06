@@ -5,6 +5,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <sstream>
 #include <string>
 
 class human{
@@ -16,7 +17,7 @@ class human{
 
 	public:
 
-		void setMoves();
+		human();
 		std::string getMoves();
 
 };
