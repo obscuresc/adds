@@ -6,6 +6,7 @@
 #include <string>
 
 #define doubleDigit 10
+#define singleCharacter 1
 
 class Reverse{
 

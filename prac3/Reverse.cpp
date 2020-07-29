@@ -21,7 +21,6 @@ int Reverse::reverseDigit(int digit) {
 	
 	// remove first digit from the main integer
 	digit = digit % (int)pow(10, i);	
-	std::cout << digit << " " << i << " " << 10*i << std::endl;
 
 	// recursive call 
 	// multiply return by 10 and add first digit
@@ -30,4 +29,17 @@ int Reverse::reverseDigit(int digit) {
 }
 
 
-std::string reverseString();
+std::string Reverse::reverseString(std::string input) {
+
+	// don't accept null string
+	if(input.empty()) return input;
+	
+	// return if single character is left
+	if(input.size() == singleCharacter) return input;
+
+	// otherwise get first character, recursive call, push to back
+	std::string firstCharacter = input.substr(0, 1);
+	input.erase(0, 1);
+	return (reverseString(input) + firstCharacter);
+
+}
