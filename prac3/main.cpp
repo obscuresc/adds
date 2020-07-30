@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "EfficientFibonacci.h"
 #include "Fibonacci.h"
 #include "Reverse.h"
 
@@ -15,11 +16,10 @@ int main(int argc, char** argv) {
 	// instantiate objects for method access
 	Reverse reverse;
 	Fibonacci fibonacci;
-
-	std::string arg1 = std::string(argv[1]);
-	std::cout << arg1 << std::endl;
+	EfficientFibonacci efficientFibonacci;
 
 	// run integer reverse
+	std::string arg1 = std::string(argv[1]);
 	std::cout << reverse.reverseDigit(std::stoi(arg1)) << std::endl;
 	
 	// run string reverse
@@ -27,5 +27,8 @@ int main(int argc, char** argv) {
 
 	// run Fibonacci
 	std::cout << fibonacci.calculate(std::stoi(argv[3])) << std::endl;
+
+	// run EfficientFibonacci
+	std::cout << efficientFibonacci.calculate(std::stoi(argv[4])) << std::endl; 
  
 }

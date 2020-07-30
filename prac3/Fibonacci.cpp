@@ -13,5 +13,4 @@ long unsigned int Fibonacci::calculate(long unsigned int input) {
 	// recursive case
 	return calculate(input - 1) + calculate(input -2);
 
-
 }
