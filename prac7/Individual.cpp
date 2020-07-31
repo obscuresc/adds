@@ -72,5 +72,15 @@ int Individual::getMaxOnes() {
 	// use strtok to segment on basis of 1s
 	// set best guess = 0
 	// if current token longer than best guess, set best guess = size of current token
+	std::istringstream iss(binaryString);
+	std::string groupOfOnes;
+	int bestGuess = 0;
+	while(std::getline(iss, groupOfOnes, "0") {
+
+		if(bestGuess < groupOfOnes.size()) bestGuess = (int) groupOfOnes.size();		
+	}
+
+	// bestGuess is now correct after completing search
+	return bestGuess;
 
 }

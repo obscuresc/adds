@@ -4,6 +4,7 @@
 #define INDIVIDUAL_H
 
 #include <string>
+#include <sstream>
 
 #define singleCharacterString 1
 
