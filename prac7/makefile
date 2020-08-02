@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -c
-LFlAGS = -o
+LFLAGS = -o
 
-main: main.o Individual.o
+main: main.o Individual.o BitFlip.o BitFlipProb.o
 	$(CC) $(LFLAGS) $@ $^
 
 main.o: main.cpp
@@ -10,3 +10,12 @@ main.o: main.cpp
 
 Individual.o: Individual.cpp
 	$(CC) $(CFLAGS) $^
+
+BitFlip.o: BitFlip.cpp
+	$(CC) $(CFLAGS) $^
+
+BitFlipProb.o: BitFlipProb.cpp
+	$(CC) $(CFLAGS) $^
+
+clean:
+	rm -f *.o main

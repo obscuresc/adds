@@ -14,4 +14,6 @@ Individual BitFlipProb::mutate(Individual individual) {
 	
 	}
 
+	return individual;
+
 }

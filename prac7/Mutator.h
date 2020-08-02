@@ -5,10 +5,10 @@
 
 #include "Individual.h"
 
-class Individual {
+class Mutator {
 
 	public:
-		virtual Individual mutate(Individual, int);
+		virtual Individual mutate(Individual, int) = 0; 
 
 };
 

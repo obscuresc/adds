@@ -12,7 +12,7 @@
 class Individual {
 
 	private:
-		std::string binaryString();
+		std::string binaryString;
 
 	public:
 		Individual(size_t);

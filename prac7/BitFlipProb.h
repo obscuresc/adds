@@ -9,6 +9,9 @@
 
 class BitFlipProb : public Mutator {
 
+	private:
+		double p;
+
 	public:
 		BitFlipProb(double);
 		Individual mutate(Individual);

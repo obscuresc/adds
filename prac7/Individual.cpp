@@ -14,7 +14,7 @@ Individual::Individual(std::string input) {
 // fill binaryString with character repeated n times
 Individual::Individual(size_t n) {
 
-	const char defaultBinaryFiller = "0";
+	char defaultBinaryFiller = '0';
 	binaryString = std::string(n, defaultBinaryFiller);
 
 }
@@ -34,7 +34,7 @@ int Individual::getBit(int pos) {
 	// function guard
 	if(pos > binaryString.size()) return -1;
 
-	return std::stoi(binaryString.substr(pos, singleCharacterString);
+	return std::stoi(binaryString.substr(pos, singleCharacterString));
 
 }
 
@@ -45,10 +45,10 @@ void Individual::flipBit(int pos) {
 	// function guard
 	if(pos > binaryString.size()) return;
 
-	if(binaryString.at(pos) == "0") {
+	if(binaryString.at(pos) == '0') {
 
 		binaryString.replace(pos, singleCharacterString, "1");
-	
+	}	
 	else {
 
 		binaryString.replace(pos, singleCharacterString, "0");
@@ -75,7 +75,7 @@ int Individual::getMaxOnes() {
 	std::istringstream iss(binaryString);
 	std::string groupOfOnes;
 	int bestGuess = 0;
-	while(std::getline(iss, groupOfOnes, "0") {
+	while(std::getline(iss, groupOfOnes, '0')) {
 
 		if(bestGuess < groupOfOnes.size()) bestGuess = (int) groupOfOnes.size();		
 	}
