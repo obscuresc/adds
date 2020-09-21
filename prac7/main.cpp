@@ -1,4 +1,4 @@
-#include "iostream"
+#include <iostream>
 
 #include "Individual.h"
 #include "Mutator.h"
@@ -34,8 +34,8 @@ int main(int argc, char * argv[]) {
 	// probably best validated by looking at char array
 	
 	// create objects
-	Individual individual1(std::string(argv[1]));
-	Individual individual2(std::string(argv[3]));
+	std::string temp = std::string(argv[1]);
+	Individual individual1(5);
+	std::cout << individual1.getString() << std::endl;
 
-	
 }

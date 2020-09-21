@@ -32,7 +32,7 @@ std::string Individual::getString() {
 int Individual::getBit(int pos) {
 
 	// function guard
-	if(pos > binaryString.size()) return -1;
+	if(pos >= binaryString.size()) return -1;
 
 	return std::stoi(binaryString.substr(pos, singleCharacterString));
 
@@ -43,7 +43,7 @@ int Individual::getBit(int pos) {
 void Individual::flipBit(int pos) {
 
 	// function guard
-	if(pos > binaryString.size()) return;
+	if(pos >= binaryString.size()) return;
 
 	if(binaryString.at(pos) == '0') {
 
