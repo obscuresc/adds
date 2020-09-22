@@ -35,7 +35,27 @@ int main(int argc, char * argv[]) {
 	
 	// create objects
 	std::string temp = std::string(argv[1]);
-	Individual individual1(5);
-	std::cout << individual1.getString() << std::endl;
+	Individual individual1(temp);
+	temp = std::string(argv[1]);
+	Individual individual2(temp);
+	
+	// grab integers from program call
+	int k1 = 0;
+	int k2 = 0;
+	sscanf(argv[2], "%d", &k1);
+	sscanf(argv[4], "%d", &k2);
 
+	// create mutators
+	BitFlip bf;
+	double p = 0.1;
+//	BitFlipProb bfp(p);
+
+	// mutate
+	Individual bfInd1 = bf.mutate(individual1, k1);
+//	Individual bfpInd2 = bfp.mutate(individual2, k2);
+
+	// print for test
+	std::cout << bfInd1.getString() << std::endl;
+//	std::cout << bfpInd2.getString() << std::endl;
+	
 }
