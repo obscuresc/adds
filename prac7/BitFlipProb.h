@@ -6,6 +6,8 @@
 #include "Mutator.h"
 
 #include <cstdlib>
+#include <ctime>
+
 
 class BitFlipProb : public Mutator {
 
@@ -14,7 +16,7 @@ class BitFlipProb : public Mutator {
 
 	public:
 		BitFlipProb(double);
-		Individual mutate(Individual);
+		Individual mutate(Individual) override;
 
 };
 

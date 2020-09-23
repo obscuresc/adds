@@ -48,7 +48,7 @@ int main(int argc, char * argv[]) {
 	// create mutators
 	BitFlip bf;
 	double p = 0.1;
-//	BitFlipProb bfp(p);
+	BitFlipProb bfp(p);
 
 	// mutate
 	Individual bfInd1 = bf.mutate(individual1, k1);

@@ -8,7 +8,7 @@
 class BitFlip : public Mutator {
 
 	public:
-		Individual mutate(Individual, int);
+		Individual mutate(Individual, int) override;
 
 };
 

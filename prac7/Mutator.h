@@ -8,7 +8,8 @@
 class Mutator {
 
 	public:
-		virtual Individual mutate(Individual, int) = 0; 
+		virtual Individual mutate(Individual) = 0; 
+	//	virtual Individual mutate(Individual, int) = 0; 
 
 };
 

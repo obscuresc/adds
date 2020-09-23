@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -c
+CFLAGS = -std=c++11 -c
 LFLAGS = -o
 
 main: main.o Individual.o BitFlip.o BitFlipProb.o
