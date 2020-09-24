@@ -11,7 +11,7 @@ main.o: main.cpp
 Individual.o: Individual.cpp
 	$(CC) $(CFLAGS) $^
 
-BitFlip.o: BitFlip.cpp
+BitFlip.o: BitFlip.cpp 
 	$(CC) $(CFLAGS) $^
 
 BitFlipProb.o: BitFlipProb.cpp

@@ -9,7 +9,7 @@
 #include <ctime>
 
 
-class BitFlipProb : public Mutator {
+class BitFlipProb: public Mutator {
 
 	private:
 		double p;

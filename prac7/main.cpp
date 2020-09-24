@@ -51,11 +51,11 @@ int main(int argc, char * argv[]) {
 	BitFlipProb bfp(p);
 
 	// mutate
-	Individual bfInd1 = bf.mutate(individual1, k1);
+	// Individual bfInd1 = bf.mutate(individual1, k1);
 //	Individual bfpInd2 = bfp.mutate(individual2, k2);
 
 	// print for test
-	std::cout << bfInd1.getString() << std::endl;
+//	std::cout << bfInd1.getString() << std::endl;
 //	std::cout << bfpInd2.getString() << std::endl;
 	
 }

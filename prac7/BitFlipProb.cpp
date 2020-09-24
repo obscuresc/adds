@@ -11,7 +11,7 @@ BitFlipProb::BitFlipProb(double input) {
 }
 
 
-Individual BitFlipProb::mutate(Individual individual) override {
+Individual BitFlipProb::mutate(Individual individual) {
 
 	for(size_t i = 0; i < individual.getLength(); i++) {
 	

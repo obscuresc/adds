@@ -5,7 +5,7 @@
 
 #include "Mutator.h"
 
-class BitFlip : public Mutator {
+class BitFlip: public Mutator {
 
 	public:
 		Individual mutate(Individual, int) override;
