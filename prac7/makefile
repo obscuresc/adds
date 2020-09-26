@@ -1,17 +1,20 @@
 CC = g++
-CFLAGS = -std=c++11 -c
+CFLAGS = -c
 LFLAGS = -o
 
-main: main.o Individual.o BitFlip.o BitFlipProb.o
+main: main.o Mutator.o Individual.o BitFlip.o BitFlipProb.o
 	$(CC) $(LFLAGS) $@ $^
 
 main.o: main.cpp
-	$(CC) $(CFLAGS) $^
+	$(CC) $(CFLAGS) $^ 
 
 Individual.o: Individual.cpp
 	$(CC) $(CFLAGS) $^
 
-BitFlip.o: BitFlip.cpp 
+Mutator.o: Mutator.cpp
+	$(CC) $(CFLAGS) $^
+
+BitFlip.o: BitFlip.cpp
 	$(CC) $(CFLAGS) $^
 
 BitFlipProb.o: BitFlipProb.cpp
