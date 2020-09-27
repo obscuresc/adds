@@ -1,15 +1,15 @@
-// Mutator.h
+// Rearrange.h
 
-#ifndef MUTATOR_H 
-#define MUTATOR_H
+#ifndef REARRANGE_H
+#define REARRANGE_H 
 
 #include "Individual.h"
 
-class Individual {
+class Rearrange {
 
 	public:
-		virtual Individual mutate(Individual, int);
+		Individual mutate(Individual, int) override;
 
 };
 
-#endif // Mutator.h
+#endif // Rearrange.h

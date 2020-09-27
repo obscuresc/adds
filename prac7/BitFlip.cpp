@@ -2,6 +2,7 @@
 
 #include "BitFlip.h"
 
+
 Individual BitFlip::mutate(Individual individual, int k) { 
 
 	int wrappedIndex = k % individual.getLength();
@@ -9,3 +10,4 @@ Individual BitFlip::mutate(Individual individual, int k) {
 	return individual;
 
 }
+

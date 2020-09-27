@@ -47,15 +47,15 @@ int main(int argc, char * argv[]) {
 
 	// create mutators
 	BitFlip bf;
-//	double p = 0.1;
-//	BitFlipProb bfp(p);
+	double p = 0.1;
+	BitFlipProb bfp(p);
 
 	// mutate
-	// Individual bfInd1 = bf.mutate(individual1, k1);
-//	Individual bfpInd2 = bfp.mutate(individual2, k2);
+	Individual bfInd1 = bf.mutate(individual1, k1);
+	Individual bfpInd2 = bfp.mutate(individual2, k2);
 
 	// print for test
-//	std::cout << bfInd1.getString() << std::endl;
-//	std::cout << bfpInd2.getString() << std::endl;
+	std::cout << bfInd1.getString() << std::endl;
+	std::cout << "bfp" << bfpInd2.getString() << std::endl;
 	
 }

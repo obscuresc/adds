@@ -16,7 +16,7 @@ class BitFlipProb: public Mutator {
 
 	public:
 		BitFlipProb(double);
-		Individual mutate(Individual) override;
+		Individual mutate(Individual, int) override;
 
 };
 
