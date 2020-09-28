@@ -4,8 +4,9 @@
 #define REARRANGE_H 
 
 #include "Individual.h"
+#include "Mutator.h"
 
-class Rearrange {
+class Rearrange: public Mutator {
 
 	public:
 		Individual mutate(Individual, int) override;

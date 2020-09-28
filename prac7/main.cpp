@@ -4,6 +4,7 @@
 #include "Mutator.h"
 #include "BitFlip.h"
 #include "BitFlipProb.h"
+#include "Rearrange.h"
 
 #define correctNArgs 5
 
@@ -13,6 +14,7 @@ Individual* execute(Individual * ptrIndividual, Mutator* ptrMutator, int k) {
 	// call mutator on the given individual using provided parameters
 	Individual* ptrExecutedIndividual = new Individual(std::string());
 	*ptrExecutedIndividual = ptrMutator->mutate(*ptrIndividual, k);
+	std::cout << "executed individual: " << ptrExecutedIndividual->getString() << std::endl;
 	return ptrExecutedIndividual;
 
 }
@@ -49,13 +51,20 @@ int main(int argc, char * argv[]) {
 	BitFlip bf;
 	double p = 0.1;
 	BitFlipProb bfp(p);
+	Rearrange rar;
 
 	// mutate
-	Individual bfInd1 = bf.mutate(individual1, k1);
-	Individual bfpInd2 = bfp.mutate(individual2, k2);
+	Individual * ptrIndividual = execute(&individual1, &bf, k1);
+	std::cout << "mstage1 " << ptrIndividual->getString() << std::endl;
+	ptrIndividual = execute(ptrIndividual, &rar, k2);
+	std::cout << "mstage2 " << ptrIndividual->getString() << std::endl;
 
-	// print for test
-	std::cout << bfInd1.getString() << std::endl;
-	std::cout << "bfp" << bfpInd2.getString() << std::endl;
-	
+	Individual * ptrIndividual2 = execute(&individual2, &bf, k1);
+	ptrIndividual2 = execute(ptrIndividual2, &rar, k2);
+
+	// print
+	std::cout << ptrIndividual->getString() << " ";
+	std::cout << ptrIndividual2->getString() << " ";
+	std::cout << ptrIndividual2->getMaxOnes() << std::endl;
+		
 }
