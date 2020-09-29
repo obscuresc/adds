@@ -9,9 +9,10 @@ Individual Rearrange::mutate(Individual individual, int k) {
 	std::string tempBitString = "";
 	int i = k;
 	while(i != k - 1) {
+		
+		tempBitString.append(std::to_string(individual.getBit(i)));
+		i = (i + 1) % individual.getLength();
 
-		tempBitString.push_back(individual.getBit(k));
-		i = (i + 1) % k;
 	}
 
 	// instantiate new individual with new string and return

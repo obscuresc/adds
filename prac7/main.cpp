@@ -9,18 +9,17 @@
 #define correctNArgs 5
 
 
-Individual* execute(Individual * ptrIndividual, Mutator* ptrMutator, int k) {
+Individual* execute(Individual* ptrIndividual, Mutator* ptrMutator, int k) {
 
 	// call mutator on the given individual using provided parameters
 	Individual* ptrExecutedIndividual = new Individual(std::string());
 	*ptrExecutedIndividual = ptrMutator->mutate(*ptrIndividual, k);
-	std::cout << "executed individual: " << ptrExecutedIndividual->getString() << std::endl;
 	return ptrExecutedIndividual;
 
 }
 
 
-int main(int argc, char * argv[]) {
+int main(int argc, char* argv[]) {
 
 	// call guard
 	if(argc != correctNArgs) {
@@ -52,19 +51,17 @@ int main(int argc, char * argv[]) {
 	double p = 0.1;
 	BitFlipProb bfp(p);
 	Rearrange rar;
-
+	
 	// mutate
-	Individual * ptrIndividual = execute(&individual1, &bf, k1);
-	std::cout << "mstage1 " << ptrIndividual->getString() << std::endl;
-	ptrIndividual = execute(ptrIndividual, &rar, k2);
-	std::cout << "mstage2 " << ptrIndividual->getString() << std::endl;
-
-	Individual * ptrIndividual2 = execute(&individual2, &bf, k1);
-	ptrIndividual2 = execute(ptrIndividual2, &rar, k2);
+	Individual * ptrIndividual1 = execute(&individual1, &bf, k1);
+	Individual * ptrIndividual2 = execute(&individual2, &rar, k2);
 
 	// print
-	std::cout << ptrIndividual->getString() << " ";
+	std::cout << ptrIndividual1->getString() << " ";
 	std::cout << ptrIndividual2->getString() << " ";
 	std::cout << ptrIndividual2->getMaxOnes() << std::endl;
-		
+
+	// clean up
+	delete ptrIndividual1;
+	delete ptrIndividual2;
 }
