@@ -9,7 +9,7 @@
 class RecursiveBinarySearch {
 
 	public:
-		size_t search(int, std::vector<int>, size_t, size_t);
+		int search(int, std::vector<int>, int, int);
 
 };
 

@@ -1,7 +1,7 @@
 // RecursiveBinarySearch.cpp
 #include "RecursiveBinarySearch.h"
 
-size_t RecursiveBinarySearch::search(int query, std::vector<int> list, size_t start, size_t end) {
+int RecursiveBinarySearch::search(int query, std::vector<int> list, int start, int end) {
 
 	// check value in middle of list
 	size_t middleIndex = list.size() / 2;
