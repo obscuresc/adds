@@ -21,8 +21,12 @@ int main(int argc, char* argv[]) {
 	for(size_t i = 2; i < argc; i++) 
 		sortList.push_back(atoi(argv[i]));	
 
-	for(size_t i = 0; i < sortList.size(); i++)
-		std::cout << sortList.at(i) << ", " << std::endl;
+	// bubble sort
+	BubbleSort bs;
+	std::vector<int> sortedList = bs.sort(sortList);
+
+	for(size_t i = 0; i < sortedList.size(); i++)
+		std::cout << sortedList.at(i) << ", ";
 	std::cout << "\b\b" << std::endl;
 
 	return 0;

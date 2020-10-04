@@ -9,7 +9,7 @@ std::vector<int> BubbleSort::sort(std::vector<int> list) {
 
 		// grab a left index and right index and compare
 		size_t m = 0;
-		while(m < list.size() + 1) {
+		while(m < list.size() - 1) {
 
 			if(list.at(m) > list.at(m + 1)) {
 				int temp = list.at(m);
