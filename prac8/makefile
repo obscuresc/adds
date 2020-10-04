@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -c
 LFLAGS = -o
 
-main: main.o BubbleSort.o RecursiveBinarySearch.o
+main: main.o BubbleSort.o RecursiveBinarySearch.o QuickSort.o
 	$(CC) $(LFLAGS) $@ $^
 
 main.o: main.cpp
@@ -12,6 +12,9 @@ BubbleSort.o: BubbleSort.cpp
 	$(CC) $(CFLAGS) $^
 
 RecursiveBinarySearch.o: RecursiveBinarySearch.cpp
+	$(CC) $(CFLAGS) $^
+
+QuickSort.o: QuickSort.cpp
 	$(CC) $(CFLAGS) $^
 
 clean:
