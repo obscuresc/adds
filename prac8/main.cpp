@@ -3,14 +3,18 @@
 #include "BubbleSort.h"
 #include "RecursiveBinarySearch.h"
 
+template <typename T, typename A>
+void PrintVector(std::vector<T, A> list) {
+
+	for(typename std::vector<T, A>::iterator it = list.begin(); it != list.end(); it++)
+		std::cout << *it << ", " << std::endl;
+	std::cout << "\b\b\n" << std::endl;
+
+}
+
 
 int main(int argc, char* argv[]) {
 	
-	std::cout << "argc < 3" << std::endl;
-	std::cout << "argv[1]: " << argv[1] << std::endl;
-	std::cout << "size of argv[1]: " << sizeof(*argv[1]) << " vs sizeof(char): " << sizeof(char) << std::endl;
-	std::cout << *argv[1] << std::endl;
-
 	// program guard
 	if(argc < 3) return -1;
 	if(sizeof(*argv[1]) != sizeof(char)) return -1;
@@ -24,10 +28,10 @@ int main(int argc, char* argv[]) {
 	// bubble sort
 	BubbleSort bs;
 	std::vector<int> sortedList = bs.sort(sortList);
+	PrintVector(sortedList);
 
-	for(size_t i = 0; i < sortedList.size(); i++)
-		std::cout << sortedList.at(i) << ", ";
-	std::cout << "\b\b" << std::endl;
+	RecursiveBinarySearch rbs;
+	std::cout << "Position of value 6: " << rbs.search(6, sortedList, 0, sortedList.size() - 1) << std::endl;
 
 	return 0;
 }
