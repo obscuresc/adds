@@ -22,8 +22,9 @@ void QuickSort::sortHelper(std::vector<int>* list, size_t lowerIndex, size_t upp
 		size_t pivotIndex = lowerIndex + 2;
 		int pivotValue = list->at(pivotIndex);
 		for(size_t i = lowerIndex; i != upperIndex; i++) {
-		
-			if(list.at(lowerIndex) < pivotValue) {
+			
+			if(i = pivotIndex)	
+			if(list.at(i) < pivotValue) {
 
 			}
 		}
