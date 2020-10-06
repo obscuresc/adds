@@ -4,11 +4,13 @@
 
 #include "Sort.h"
 
-class QuickSort_h: public Sort {
+class QuickSort: public Sort {
 
 	public:
-		std::vector<int> sort(std::vector<int>) override;		
-
+		void sort(std::vector<int>*) override;		
+	
+	private:
+		void sortHelper(std::vector<int>*, size_t, size_t);
 };
 
 #endif // QUICKSORT_H

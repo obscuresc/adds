@@ -27,11 +27,11 @@ int main(int argc, char* argv[]) {
 
 	// bubble sort
 	BubbleSort bs;
-	std::vector<int> sortedList = bs.sort(sortList);
-	PrintVector(sortedList);
+	bs.sort(&sortList);
+	PrintVector(sortList);
 
 	RecursiveBinarySearch rbs;
-	std::cout << "Position of value 6: " << rbs.search(6, sortedList, 0, sortedList.size() - 1) << std::endl;
+	std::cout << "Position of value 6: " << rbs.search(6, sortList, 0, sortList.size() - 1) << std::endl;
 
 	return 0;
 }

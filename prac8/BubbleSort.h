@@ -7,7 +7,7 @@
 class BubbleSort: public Sort {
 
 	public:
-		std::vector<int> sort(std::vector<int>) override;	
+		void sort(std::vector<int>*) override;	
 
 };
 
