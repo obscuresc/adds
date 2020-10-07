@@ -21,11 +21,16 @@ void QuickSort::sortHelper(std::vector<int>* list, size_t lowerIndex, size_t upp
 		
 		size_t pivotIndex = lowerIndex + 2;
 		int pivotValue = list->at(pivotIndex);
+		int swapBuffer = 0;
 		for(size_t i = lowerIndex; i != upperIndex; i++) {
 			
-			if(i = pivotIndex)	
-			if(list.at(i) < pivotValue) {
-
+			if(list->at(i) > pivotValue) {
+			
+				swapBuffer = list->at(upperIndex);
+				list->at(upperIndex) = list->at(i);
+				list->at(i) = swapBuffer;
+				upperIndex--;
+				i--;
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "BubbleSort.h"
+#include "QuickSort.h"
 #include "RecursiveBinarySearch.h"
 
 template <typename T, typename A>
@@ -24,12 +25,19 @@ int main(int argc, char* argv[]) {
 	std::vector<int> sortList;
 	for(size_t i = 2; i < argc; i++) 
 		sortList.push_back(atoi(argv[i]));	
+	
+	// load sort method
+	char sortMethod = *argv[1];
 
-	// bubble sort
+	// sort
 	BubbleSort bs;
-	bs.sort(&sortList);
+	QuickSort qs;
+	if(sortMethod == 'B') bs.sort(&sortList);
+	else qs.sort(&sortList);
+	std::cout << sortMethod << " sort results." << std::endl;
 	PrintVector(sortList);
 
+	// recursive binary search
 	RecursiveBinarySearch rbs;
 	std::cout << "Position of value 6: " << rbs.search(6, sortList, 0, sortList.size() - 1) << std::endl;
 
