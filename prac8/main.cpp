@@ -38,8 +38,8 @@ int main(int argc, char* argv[]) {
 	PrintVector(sortList);
 
 	// recursive binary search
-	RecursiveBinarySearch rbs;
-	std::cout << "Position of value 6: " << rbs.search(6, sortList, 0, sortList.size() - 1) << std::endl;
+	//	RecursiveBinarySearch rbs;
+	// std::cout << "Position of value 6: " << rbs.search(6, sortList, 0, sortList.size() - 1) << std::endl;
 
 	return 0;
 }
