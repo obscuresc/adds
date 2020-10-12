@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 	QuickSort qs;
 	if(sortMethod == 'B') bs.sort(&sortList);
 	else qs.sort(&sortList);
-	std::cout << sortMethod << " sort results." << std::endl;
+	std::cout << "sort results." << std::endl;
 	PrintVector(sortList);
 
 	// recursive binary search
