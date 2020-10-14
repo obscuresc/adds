@@ -17,43 +17,52 @@ void QuickSort::sortHelper(std::vector<int>* list, size_t lowerIndex, size_t upp
 	if(upperIndex - lowerIndex < 2) return;
 
 	// recursive case
-	else {
-
-		// don't like this method, but having trouble with
-		// the index management version
-		size_t pivotIndex = lowerIndex + 2;
-		std::cout << "pivotIndex: " << pivotIndex << std::endl;
-		std::cout << "lowerIndex: " << lowerIndex << std::endl;
-		std::cout << "upperIndex: " << upperIndex << std::endl;
-		std::vector<int> lower(upperIndex - lowerIndex + 1);
-		std::vector<int> upper(upperIndex - lowerIndex + 1);
+	// don't like this method, but having trouble with
+	// the index management version
+	size_t pivotIndex = lowerIndex + 2;
+	std::cout << "pivotIndex: " << pivotIndex << std::endl;
+	std::cout << "lowerIndex: " << lowerIndex << std::endl;
+	std::cout << "upperIndex: " << upperIndex << std::endl;
+	std::vector<int> lower;
+	std::vector<int> upper;
 	
-		std::vector<int>::iterator lowerIt;
-		std::vector<int>::iterator upperIt;
-		lowerIt = lower.begin();
-		upperIt = upper.begin();
-		for(size_t i = lowerIndex; i < upperIndex; i++) {
+	for(size_t i = lowerIndex; i <=  upperIndex; i++) {
 
-			std::cout << "loop: " << i << std::endl;
-			if(i != pivotIndex) {
+		if(i != pivotIndex) {
 
-				if(list->at(i) <= list->at(pivotIndex)) {
-					lower.insert(lowerIt, list->at(i));
-				}
-				else {
-					upper.insert(upperIt, list->at(i));
-				}
+			if(list->at(i) <= list->at(pivotIndex)) {
+				lower.push_back(list->at(i));
 			}
-		}	
-		
-		std::cout << "postLoop" << std::endl;
-		lower.insert(lowerCount, list->at(pivotIndex));
-		std::vector<int>::iterator i;
-//		for(i = lower.begin(); i != lower.end(); i++)
-//			list->at(i + lowerIndex) = lower.at(i);
-//		for(i = upper.begin(); i != upper.end(); i++)
-//			list->at(i + upperIndex) = upper.at(i);
-	}
+			else {
+				upper.push_back(list->at(i));
+			}
+		}
+	}	
+	
+
+	lower.push_back(list->at(pivotIndex));
+
+	std::cout << "before inserting sublists" << std::endl;	
+	for(size_t i = 0; i < list->size(); i++)
+		std::cout << "list at(" << i << ") = " << list->at(i) << std::endl;
+	for(size_t i = 0; i < lower.size(); i++)
+		list->at(lowerIndex + i) = lower.at(i);
+
+	std::cout << "after inserting lower list" << std::endl;	
+	for(size_t i = 0; i < list->size(); i++)
+		std::cout << "list at(" << i << ") = " << list->at(i) << std::endl;
+
+	for(size_t i = 0; i < upper.size(); i++)
+		list->at(lowerIndex + lower.size() + i) = upper.at(i);
+
+	std::cout << "after inserting upper list" << std::endl;	
+	for(size_t i = 0; i < list->size(); i++)
+		std::cout << "list at(" << i << ") = " << list->at(i) << std::endl;
+
+	std::cout << "\n\n\n\n\n" << std::endl;
+	sortHelper(list, 0, pivotIndex - 1);
+	sortHelper(list, pivotIndex + 1, upperIndex); 
+
 }
 
 
