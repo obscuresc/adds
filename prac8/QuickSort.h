@@ -11,7 +11,6 @@ class QuickSort: public Sort {
 	
 	private:
 		void sortHelper(std::vector<int>*, size_t, size_t);
-		void swap(std::vector<int>*, size_t, size_t);
 };
 
 #endif // QUICKSORT_H
