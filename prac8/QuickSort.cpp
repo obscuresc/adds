@@ -13,61 +13,61 @@ void QuickSort::sort(std::vector<int>* list) {
 
 void QuickSort::sortHelper(std::vector<int>* list, size_t lowerIndex, size_t upperIndex) {
 
-	std::cout << "--->   sortHelperCall    <---" << std::endl;
-	std::cout << "lowerIndex: " << lowerIndex << " upperIndex: " << upperIndex << std::endl;	
-	printList(list);	
+	// function guard
+	if(lowerIndex >= upperIndex || upperIndex > list->size()) return;
 
+	size_t pivotIndex = partition(list, lowerIndex, upperIndex);
+	sortHelper(list, lowerIndex, pivotIndex - 1);
+	sortHelper(list, pivotIndex + 1, upperIndex); 
+	
+}
+
+size_t QuickSort::partition(std::vector<int>* list, size_t lowerIndex, size_t upperIndex) {
+
+	// per spec, pivot index should be index 2 of the sublist
+	// unless list is too small
+	// this way accounts for list size >= 3 and for any < 3
 	size_t pivotIndex = lowerIndex + 2;
-	if(upperIndex - lowerIndex == 1) pivotIndex = lowerIndex;
-	std::cout << "pivotValue: " << list->at(pivotIndex) << std::endl;
-	std::vector<int> lowerList;
-	std::vector<int> upperList;
+	if(upperIndex - lowerIndex < 2)	pivotIndex = lowerIndex;
+
+	// find new location of the pivot
+	size_t newPivotIndex = lowerIndex;
+	for(size_t i = lowerIndex; i <= upperIndex; i++) {
+
+		if(list->at(i) <= list->at(pivotIndex))
+		   if(i != pivotIndex) newPivotIndex++;
+
+	}
 	
-	for(size_t i = lowerIndex; i <=  upperIndex; i++) {
+	// swap pivotValue into new pivot location
+	swap(list, pivotIndex, newPivotIndex);
 
-		if(i != pivotIndex) {
+	// partition using new pivot location
+	size_t m = lowerIndex;
+	size_t upperPartitionIndex = newPivotIndex + 1;
+	while(m != newPivotIndex) {
 
-			if(list->at(i) <= list->at(pivotIndex)) {
-				lowerList.push_back(list->at(i));
-			}
-			else {
-				upperList.push_back(list->at(i));
-			}
+		if(list->at(m) > list->at(newPivotIndex)) {
+
+			swap(list, m, upperPartitionIndex);
+			upperPartitionIndex++;
+			
 		}
-	}	
 
-	// load lower list with pivot
-	lowerList.push_back(list->at(pivotIndex));
-
-	std::cout << "lower list" << std::endl;	
-	printList(&lowerList);
-	std::cout << "upper list" << std::endl;	
-	printList(&upperList);
-	
-	// overwrite lower portion of list selection
-	for(size_t i = 0; i < lowerList.size(); i++)
-		list->at(lowerIndex + i) = lowerList.at(i);
-
-	std::cout << "after inserting lower list" << std::endl;	
-	printList(list);
-
-	// overwrite higher portion of list selection
-	for(size_t i = 0; i < upperList.size(); i++)
-		list->at(lowerIndex + lowerList.size() + i) = upperList.at(i);
-
-	std::cout << "after inserting upper list" << std::endl;	
-	printList(list);
-	
-	std::cout << "--------------------------" << std::endl;
-
-	if(lowerList.size() > 2) {
-		std::cout << "lower sublist call" << std::endl;
-		std::cout << "list, " << lowerIndex << ", " << lowerList.size() - 2 << std::endl;
-		sortHelper(list, lowerIndex, lowerIndex + lowerList.size());
+		else m++;
 	}
 
-	std::cout << "upper sublist" << std::endl;
-	std::cout << "list, " << lowerIndex + lowerList.size() << ", " << upperIndex << std::endl;
-	sortHelper(list, lowerIndex + lowerList.size(), upperIndex); 
+	return newPivotIndex;
 	
+}
+
+void QuickSort::swap(std::vector<int>* list, size_t index1, size_t index2) {
+
+	// function guard
+	if(index1 >= list->size() || index2 >= list->size()) return;
+
+	int buffer = list->at(index1);
+	list->at(index1) = list->at(index2);
+	list->at(index2) = buffer;
+
 }

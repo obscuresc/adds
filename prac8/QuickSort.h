@@ -10,7 +10,9 @@ class QuickSort: public Sort {
 		void sort(std::vector<int>*) override;		
 	
 	private:
+		size_t partition(std::vector<int>*, size_t, size_t);
 		void sortHelper(std::vector<int>*, size_t, size_t);
+		void swap(std::vector<int>*, size_t, size_t);
 };
 
 #endif // QUICKSORT_H
