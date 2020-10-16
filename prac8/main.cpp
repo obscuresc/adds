@@ -8,8 +8,8 @@ template <typename T, typename A>
 void PrintVector(std::vector<T, A> list) {
 
 	for(typename std::vector<T, A>::iterator it = list.begin(); it != list.end(); it++)
-		std::cout << *it << ", " << std::endl;
-	std::cout << "\b\b\n" << std::endl;
+		std::cout << *it << " ";
+	std::cout << "\b" << std::endl;
 
 }
 
@@ -34,12 +34,15 @@ int main(int argc, char* argv[]) {
 	QuickSort qs;
 	if(sortMethod == 'B') bs.sort(&sortList);
 	else qs.sort(&sortList);
-	std::cout << "sort results." << std::endl;
-	PrintVector(sortList);
 
 	// recursive binary search
-	//	RecursiveBinarySearch rbs;
-	// std::cout << "Position of value 6: " << rbs.search(6, sortList, 0, sortList.size() - 1) << std::endl;
+	RecursiveBinarySearch rbs;
+
+	// print as desired
+	if(rbs.search(6, &sortList, 0, sortList.size() - 1) == -1)
+	   	std::cout << "false ";
+	else std::cout << "true ";
+	PrintVector(sortList);
 
 	return 0;
 }
