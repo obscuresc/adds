@@ -27,7 +27,7 @@ std::string PrefixConverter::getInfix() {
 }
 
 
-std::string PrefixConverter::toPostfix() {
+std::string PrefixConverter::getPostfix() {
 
 	// function guard
 	if(infixString.empty()) {
@@ -35,12 +35,11 @@ std::string PrefixConverter::toPostfix() {
 		return std::string();
 	}
 
-	
 	return std::string("Invalid expression.");
 }
 
 
-long int PrefixConverter::eval() {
+long int PrefixConverter::getEval() {
 
 	return 0;
 
@@ -52,10 +51,25 @@ bool PrefixConverter::isValid() {
 	// tokenise and check each token
 	std::istringstream iss(infixString);
 	std::string token = {};
+	bool isValidInteger = false;
+	bool isValidOperator = false;
 
 	while(iss >> token) {
 
-		std::cout << "test" << std::endl;
+		// return false if not an integer
+		try {
+			std::stoi(token);
+		}
+		catch (int) { isValidInteger = false; }
+
+		// return false if not an operator
+		isValidOperator = (token == std::string("+") ||
+			token == std::string("-") || 
+			token == std::string("*") || 
+			token == std::string("/"));
+		
+		if(!isValidInteger || !isValidOperator) return false;
+
 	}
 
 	return true;

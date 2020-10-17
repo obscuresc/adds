@@ -19,7 +19,6 @@ DBGEXE = $(DBGDIR)/$(EXECUTABLE)
 DBGOBJS = $(addprefix $(DBGDIR)/, $(OBJS))
 DBGCFLAGS = -g -O0 -DDEBUG
 
-.PHONY: all clean debug prep release remake
 
 ### default build ###
 all: prep release
@@ -43,12 +42,15 @@ $(DBGDIR)/%.o: %.cpp
 	$(CPC) -c $(CFLAGS) $(DBGCFLAGS) -o $@ $^
 
 ### extra ###
+
+.PHONY: all clean debug prep release remake
+
 prep:
 	@mkdir -p $(DBGDIR) $(RELDIR)
 
 remake: clean all
 
 clean:
-
+	rm -f $(RELEXE) $(RELOBJS) $(DBGEXE) $(DBGOBJS)
 
 

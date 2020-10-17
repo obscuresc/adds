@@ -13,8 +13,8 @@ class PrefixConverter {
 		PrefixConverter(std::string*);
 		void setInfix(std::string*);
 		std::string getInfix();		
-		std::string toPostfix();
-		long int eval();
+		std::string getPostfix();
+		long int getEval();
 
 	private:
 		bool isValid();

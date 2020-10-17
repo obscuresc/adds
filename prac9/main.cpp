@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 	}	
 
 	PrefixConverter pc(&cliInput);
-	std::cout << pc.toPostfix() << " = " << pc.eval() << std::endl;
+	std::cout << pc.getPostfix() << " = " << pc.getEval() << std::endl;
 
 	return 0;
 }
