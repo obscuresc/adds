@@ -3,6 +3,8 @@
 #ifndef _PREFIXCONVERTER_H
 #define _PREFIXCONVERTER_H
 
+#include <iostream>
+#include <sstream>
 #include <string>
 
 class PrefixConverter {
@@ -15,7 +17,7 @@ class PrefixConverter {
 		long int eval();
 
 	private:
-		bool assertValid(std::string*);
+		bool isValid();
 		std::string infixString;
 
 };

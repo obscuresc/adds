@@ -2,38 +2,61 @@
 #include "PrefixConverter.h"
 
 
-PrefixConverter(std::string* input) {
+PrefixConverter::PrefixConverter(std::string* input) {
 
 	setInfix(input);
 }
 
 
-void setInfix(std::string*) {
-
-	if(assertValid(input)) infixString = *input; 
-	else {
-
-		std::cout << "Invalid infix expression" << std::endl;
+void PrefixConverter::setInfix(std::string* input) {
+	
+	// function guard
+	if(!isValid()) {
+		std::cout << "Invalid input" << std::endl;
 		return;
-
 	}
+
+	infixString = *input;
+	std::cout << *input << std::endl;
 }
 
 
-std::string getInfix() {
+std::string PrefixConverter::getInfix() {
 
 	return infixString;
 }
 
 
-std::string toPostfix() {
+std::string PrefixConverter::toPostfix() {
 
-	return std::string("not implemented");
+	// function guard
+	if(infixString.empty()) {
+		std::cout << "Input string is empty" << std::endl;
+		return std::string();
+	}
+
+	
+	return std::string("Invalid expression.");
 }
 
 
-long int eval() {
+long int PrefixConverter::eval() {
 
 	return 0;
 
+}
+
+
+bool PrefixConverter::isValid() {
+
+	// tokenise and check each token
+	std::istringstream iss(infixString);
+	std::string token = {};
+
+	while(iss >> token) {
+
+		std::cout << "test" << std::endl;
+	}
+
+	return true;
 }

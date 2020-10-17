@@ -15,12 +15,12 @@ int main(int argc, char* argv[]) {
 	std::string cliInput;
 	for(int i = 1; i < argc; i++) {
 
-		cliInput.push_back(std::string(argv[i]));
+		cliInput.append(std::string(argv[i]));
 
 	}	
 
-	PrefixConverter pc(*cliInput);
-	std::cout << pc.toPostfix << " = " << pc.eval() << std::endl;
+	PrefixConverter pc(&cliInput);
+	std::cout << pc.toPostfix() << " = " << pc.eval() << std::endl;
 
 	return 0;
 }
