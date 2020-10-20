@@ -5,6 +5,18 @@
 PrefixConverter::PrefixConverter(std::string* input) {
 
 	setInfix(input);
+	head = new Node();	
+}
+
+
+~PrefixConverter::PrefixConverter() {
+
+	// doubly linked list
+	// find tail
+	// move to prev, delete next
+	// repeat until head where prev == nullptr
+	delete head;
+	
 }
 
 

@@ -16,6 +16,11 @@ struct Node {
 		attach->next = this;
 
 		// point this Node at nullptr to invalid bad programming
-		this.next = nullptr;
+		this->next = nullptr;
+
+	}
+
+	// for head nodes
+	Node() {};
 
 };

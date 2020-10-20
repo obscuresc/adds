@@ -7,10 +7,14 @@
 #include <sstream>
 #include <string>
 
+#include "Node.h"
+
+
 class PrefixConverter {
 
 	public:
 		PrefixConverter(std::string*);
+		~PrefixConverter();
 		void setInfix(std::string*);
 		std::string getInfix();		
 		std::string getPostfix();
@@ -19,6 +23,8 @@ class PrefixConverter {
 	private:
 		bool isValid();
 		std::string infixString;
+		Node* head;
+		
 
 };
 
