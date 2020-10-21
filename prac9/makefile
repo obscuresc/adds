@@ -1,6 +1,6 @@
 ### this makefile is overkill but I wanted to try it ###
 CPC = g++
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
 ### project files ###
 SRCS = main.cpp PrefixConverter.cpp

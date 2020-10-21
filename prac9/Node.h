@@ -7,16 +7,16 @@ struct Node {
 	Node* prev;
 	std::string data;
 
-	Node(Node * attach) {
-
-		// link this Node to the previous
-		prev = attach;
+	Node(Node* attach, std::string* input) {
 
 		// link the last Node to this one
 		attach->next = this;
 
 		// point this Node at nullptr to invalid bad programming
 		this->next = nullptr;
+
+		// load data
+		data = *input;
 
 	}
 

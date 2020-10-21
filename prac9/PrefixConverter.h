@@ -21,8 +21,7 @@ class PrefixConverter {
 		long int getEval();
 
 	private:
-		bool isValid();
-		std::string infixString;
+		bool isValid(std::string*);
 		Node* head;
 		
 
