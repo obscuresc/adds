@@ -4,16 +4,20 @@
 
 PrefixConverter::PrefixConverter(std::string* input) {
 
+	#ifdef DEBUG
+		std::cout << "PrefixConverter constructor" << std::endl;
+	#endif // DEBUG
+
 	head = new Node();	
 	setInfix(input);
-
-	#ifdef DEBUG
-		std::cout << "pc made" << std::endl;
-	#endif // DEBUG
 }
 
 
 PrefixConverter::~PrefixConverter() {
+
+	#ifdef DEBUG
+		std::cout << "PrefixConverter destructor" << std::endl;
+	#endif // DEBUG
 
 	// doubly linked list
 	Node * aNode = head;
@@ -36,6 +40,10 @@ PrefixConverter::~PrefixConverter() {
 
 void PrefixConverter::setInfix(std::string* input) {
 	
+	#ifdef DEBUG
+		std::cout << "setInfix function" << std::endl;
+	#endif // DEBUG
+
 	// function guard
 	if(!isValid(input)) {
 		std::cout << "Invalid input" << std::endl;
@@ -57,21 +65,33 @@ void PrefixConverter::setInfix(std::string* input) {
 
 std::string PrefixConverter::getInfix() {
 
+	#ifdef DEBUG
+		std::cout << "getInfix function" << std::endl;
+	#endif // DEBUG
+
 	std::string infixString;
 	Node * aNode = head->next;
 	while(aNode->next != nullptr) {
 
 		infixString.append(aNode->data);
 		infixString.append(" ");
+		aNode = aNode->next;
 	}
-	
-	infixString.pop_back();
-	std::cout << "getInfix: " << infixString << std::endl;
+
+	infixString.append(aNode->data);	
+
+	#ifdef DEBUG
+		std::cout << "getInfix result: " << infixString << std::endl;
+	#endif // DEBUG
 	return infixString;
 }
 
 
 std::string PrefixConverter::getPostfix() {
+
+	#ifdef DEBUG
+		std::cout << "getPostFix function" << std::endl;
+	#endif // DEBUG
 
 	// function guard
 	if(head->next == nullptr) {
@@ -79,6 +99,26 @@ std::string PrefixConverter::getPostfix() {
 		return std::string();
 	}
 
+	// recreate stack using Nodes
+	// difficult to create stack-like behaviour unless I have
+	// doubly linked list
+	Node * aNode = head;
+	while(aNode->next != nullptr) {
+
+		// add Nodes to a new linked list
+		// track the latest operator
+		// if two non-operators are added after operator
+		// resolve into expression
+		// find the most recent operator moving prev
+		// threw the list
+		aNode = aNode->next;
+		
+	}
+
+	// at the end of the loop
+	// expression should only have one Node
+	// operator should have none
+	// if not, I can return and say it was invalid
 	return std::string("Invalid expression.");
 }
 
