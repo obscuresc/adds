@@ -99,18 +99,35 @@ std::string PrefixConverter::getPostfix() {
 		return std::string();
 	}
 
-	// recreate stack using Nodes
-	// difficult to create stack-like behaviour unless I have
-	// doubly linked list
-	Node * aNode = head;
+	// recreate stack-like behavior with std::vector
+	Node * aNode = head->next;
+	std::vector<std::string> expressionStack;
 	while(aNode->next != nullptr) {
 
-		// add Nodes to a new linked list
-		// track the latest operator
-		// if two non-operators are added after operator
-		// resolve into expression
+		expressionStack.push_back(aNode->data);				
+
+		// make sure stack is greater than three items
+		if(expressionStack.size() > 2) {
+
+			// if two non-operators are added after operator
+			size_t lastIndex = (size_t) expressionStack.end() - 1;
+			size_t secondLastIndex = lastIndex - 1;
+			size_t thirdLastIndex = secondLastIndex - 1;
+			if(!isOperator(&expressionStack.at(lastIndex)) 
+				&& !isOperator(&expressionStack.at(secondLastIndex))
+				&& isOperator(&expressionStack.at(thirdLastIndex))) {
+
+				// resolve into expression
+				expressionStack.at(thirdLastIndex) = std::string("("
+					   	+ expressionStack.at(lastIndex)
+						+ expressionStack.at(thirdLastIndex) + " " +
+						expressionStack.at(secondLastIndex) + ")");
+
+
+			}	
+		}
 		// find the most recent operator moving prev
-		// threw the list
+		// through the list
 		aNode = aNode->next;
 		
 	}
@@ -193,4 +210,14 @@ bool PrefixConverter::isValid(std::string* input) {
 		std::cout << "Validity passed." << std::endl;
 	#endif // DEBUG
 	return true;
+}
+
+
+bool PrefixConverter::isOperator(std::string* input) {
+
+	return (input->compare(std::string("+")) == (size_t) 0 ||
+			input->compare(std::string("-")) == (size_t) 0 || 
+			input->compare(std::string("*")) == (size_t) 0 || 
+			input->compare(std::string("/")) == (size_t) 0);
+
 }

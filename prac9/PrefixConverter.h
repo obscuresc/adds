@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 #include "Node.h"
 
@@ -22,6 +23,7 @@ class PrefixConverter {
 
 	private:
 		bool isValid(std::string*);
+		bool isOperator(std::string*);
 		Node* head;
 		
 
