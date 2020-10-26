@@ -55,11 +55,9 @@ void PrefixConverter::setInfix(std::string* input) {
 	Node * pNode = head;
 	while(iss >> token) {
 
-		std::cout << token << std::endl;
 		pNode = new	Node(pNode, &token);
 	}
 
-	std::cout << *input << std::endl;
 }
 
 
@@ -100,9 +98,15 @@ std::string PrefixConverter::getPostfix() {
 	}
 
 	// recreate stack-like behavior with std::vector
-	Node * aNode = head->next;
+	Node * aNode = head;
 	std::vector<std::string> expressionStack;
 	while(aNode->next != nullptr) {
+
+		aNode = aNode->next;
+
+		#ifdef DEBUG
+			std::cout << "Inserting data: " << aNode->data << std::endl;
+		#endif // DEBUG
 
 		expressionStack.push_back(aNode->data);				
 
@@ -110,33 +114,40 @@ std::string PrefixConverter::getPostfix() {
 		if(expressionStack.size() > 2) {
 
 			// if two non-operators are added after operator
-			size_t lastIndex = (size_t) expressionStack.end() - 1;
+			size_t lastIndex = expressionStack.end() - expressionStack.begin() - 1;
 			size_t secondLastIndex = lastIndex - 1;
 			size_t thirdLastIndex = secondLastIndex - 1;
 			if(!isOperator(&expressionStack.at(lastIndex)) 
 				&& !isOperator(&expressionStack.at(secondLastIndex))
 				&& isOperator(&expressionStack.at(thirdLastIndex))) {
 
+				#ifdef DEBUG
+					std::cout << "Expression resolve" << std::endl;
+				#endif // DEBUG
+
 				// resolve into expression
-				expressionStack.at(thirdLastIndex) = std::string("("
-					   	+ expressionStack.at(lastIndex)
-						+ expressionStack.at(thirdLastIndex) + " " +
-						expressionStack.at(secondLastIndex) + ")");
+				expressionStack.at(thirdLastIndex) = std::string("(" +
+					   	expressionStack.at(secondLastIndex) + " " +
+						expressionStack.at(thirdLastIndex) + " " +
+						expressionStack.at(lastIndex) + ")");
 
-
+				expressionStack.pop_back();
+				expressionStack.pop_back();
 			}	
 		}
-		// find the most recent operator moving prev
-		// through the list
-		aNode = aNode->next;
-		
 	}
 
 	// at the end of the loop
 	// expression should only have one Node
 	// operator should have none
 	// if not, I can return and say it was invalid
-	return std::string("Invalid expression.");
+	#ifdef DEBUG
+		for(size_t i = 0; i < expressionStack.size(); i++)
+			std::cout << expressionStack.at(i) << std::endl;
+	#endif // DEBUG
+
+	if(expressionStack.size() == 1) return expressionStack.at(0);
+	else return std::string("Error");
 }
 
 
@@ -191,10 +202,12 @@ bool PrefixConverter::isValid(std::string* input) {
 			std::cout << "eq/: " << (token.compare(std::string("/")) == size_t(0)) << std::endl;
 		#endif // DEBUG
 
-	
-		std::cout << "validInteger: " << isValidInteger;
-		std::cout << " validOperator: " << isValidOperator;
-		std::cout << std::endl;	
+		#ifdef DEBUG	
+			std::cout << "validInteger: " << isValidInteger;
+			std::cout << " validOperator: " << isValidOperator;
+			std::cout << std::endl;
+		#endif // DEBUG
+
 		if(!isValidInteger && !isValidOperator) {
 			
 			#ifdef DEBUG
