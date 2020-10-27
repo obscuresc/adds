@@ -5,9 +5,10 @@
 class FilterGeneric {
 
 	public:
-		std::vector<int> filter(std::vector<int>) = 0;
+		std::vector<int> filter(std::vector<int>);
 
 	private:
+		void filterHelper(std::vector<int>*, size_t);
 		bool g(int) = 0;
 };
 

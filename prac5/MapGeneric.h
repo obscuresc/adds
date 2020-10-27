@@ -8,10 +8,11 @@
 class MapGeneric {
 
 	public:
-		std::vector<int> map(std::vector<int>) = 0;
+		std::vector<int> map(std::vector<int>);
 
 	private:
-		int f(int) = 0;
+		void mapHelper(std::vector<int>*, size_t);
+		virtual int f(int) = 0;
 
 };
 

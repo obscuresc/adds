@@ -7,9 +7,6 @@
 
 class MapTriple: public MapGeneric {
 
-	public:
-		std::vector<int> map(std::vector<int>) override; 
-
 	private:
 		int f(int) override;
 
