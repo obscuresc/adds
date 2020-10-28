@@ -18,7 +18,7 @@ RELCFLAGS = -O3 -DNDEBUG
 ### debug settings ###
 DBGDIR = debug
 DBGEXE = $(DBGDIR)/$(EXE)
-DBGOBJS = $(addprefix $(DBGDIR), $(OBJS))
+DBGOBJS = $(addprefix $(DBGDIR)/, $(OBJS))
 DBGCFLAGS = -g -O0 -DDEBUG
 
 ### default build ###
