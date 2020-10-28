@@ -2,6 +2,8 @@
 #ifndef _FILTERGENERIC_H
 #define _FILTERGENERIC_H
 
+#include <vector>
+
 class FilterGeneric {
 
 	public:
@@ -9,7 +11,7 @@ class FilterGeneric {
 
 	private:
 		void filterHelper(std::vector<int>*, size_t);
-		bool g(int) = 0;
+		virtual bool g(int) = 0;
 };
 
 #endif // _FILTERGENERIC_H

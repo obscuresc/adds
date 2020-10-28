@@ -6,7 +6,7 @@ CFLAGS = -std=c++11 -Wall -Werror -Wextra -pedantic
 
 ### project settings ###
 SRCS = main MapGeneric MapAbsoluteValue MapSquare MapTriple FilterGeneric
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:=.o)
 EXE = main
 
 ### release settings ###
@@ -40,7 +40,7 @@ $(DBGEXE): $(DBGOBJS)
 	$(CC) $(CFLAGS) $(DBGCFLAGS) -o $@ $^
 
 $(DBGDIR)/%.o: %.cpp
-	$(CC) -o $(CFLAGS) $(DBGCFLAGS) -o $@ $^
+	$(CC) -c $(CFLAGS) $(DBGCFLAGS) -o $@ $^
 
 
 ### misc ###

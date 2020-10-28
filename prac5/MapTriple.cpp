@@ -3,6 +3,6 @@
 
 int MapTriple::f(int input) {
 
-	const int triple = 3;
-	return triple * 3;
+	const int tripleFactor = 3;
+	return tripleFactor * input;
 }
