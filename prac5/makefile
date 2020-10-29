@@ -5,7 +5,7 @@ CC = g++
 CFLAGS = -std=c++11 -Wall -Werror -Wextra -pedantic
 
 ### project settings ###
-SRCS = main MapGeneric MapAbsoluteValue MapSquare MapTriple FilterGeneric
+SRCS = main MapGeneric MapAbsoluteValue MapSquare MapTriple FilterGeneric FilterOdd FilterNonPositive FilterForTwoDigitPositive
 OBJS = $(SRCS:=.o)
 EXE = main
 

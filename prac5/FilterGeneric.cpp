@@ -14,7 +14,11 @@ void FilterGeneric::filterHelper(std::vector<int>* input, size_t index) {
 	if(index == input->size()) return;
 
 	// recursive case
-	input->at(index) = g(input->at(index));
-	filterHelper(input, index + 1);
+	if(g(input->at(index))) {
+		input->erase(input->begin() + index);
+		index--;
+	}
 
+	index++;
+	filterHelper(input, index);
 }
