@@ -8,8 +8,14 @@
 #include "MapTriple.h"
 
 #include "FilterGeneric.h"
+#include "FilterOdd.h"
+#include "FilterNonPositive.h"
+#include "FilterForTwoDigitPositive.h"
 
 #include "ReduceGeneric.h"
+#include "ReduceMinimum.h"
+#include "ReduceGCD.h"
+
 
 // correct number of arguments, 1 for program name, 20 for vector
 #define correctNumArgs 21 
@@ -80,8 +86,22 @@ int main(int argc, char* argv[]) {
 		printVector(&Ldash);
 	#endif // DEBUG
 	
-	// first filter per spec
+	// create filter objects
+	FilterOdd fo;
+	FilterNonPositive fnp;
+	FilterForTwoDigitPositive ftdp;
 
-	//
+	// first filter per spec
+	std::vector<int> Ldashdash = ftdp.filter(Ldash);
+	#ifdef DEBUG
+		std::cout << "Ldash after filter two-digitive positive" << std::endl;
+	#endif // DEBUG
+
+	// second filter per spec
+	Ldashdash = fo.filter(Ldashdash);
+	#ifdef DEBUG
+		std::cout << "Ldashdash" << std::endl;
+	#endif // DEBUG
+
 	return 0;
 }
