@@ -7,6 +7,7 @@
 class ReduceMinimum: public ReduceGeneric {
 
 	private:
+		int reduceHelper(std::vector<int>*, size_t) override;
 		int binaryOperator(int, int) override;
 
 };

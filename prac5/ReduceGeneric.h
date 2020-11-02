@@ -10,7 +10,7 @@ class ReduceGeneric {
 		int reduce(std::vector<int>);
 
 	private:
-		int reduceHelper(std::vector<int>*, size_t);
+		virtual int reduceHelper(std::vector<int>*, size_t) = 0;
 		virtual int binaryOperator(int, int) = 0;
 };
 
