@@ -95,13 +95,23 @@ int main(int argc, char* argv[]) {
 	std::vector<int> Ldashdash = ftdp.filter(Ldash);
 	#ifdef DEBUG
 		std::cout << "Ldash after filter two-digitive positive" << std::endl;
+		printVector(&Ldashdash);
 	#endif // DEBUG
 
 	// second filter per spec
 	Ldashdash = fo.filter(Ldashdash);
 	#ifdef DEBUG
 		std::cout << "Ldashdash" << std::endl;
+		printVector(&Ldashdash);
 	#endif // DEBUG
+
+	// create reduce objects
+	ReduceMinimum rm;
+	ReduceGCD rgcd;
+
+	// program output
+	std::cout << rm.reduce(Ldashdash) << " " << rgcd.reduce(Ldashdash);
+	std::cout << std::endl;
 
 	return 0;
 }

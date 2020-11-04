@@ -4,6 +4,6 @@
 bool FilterOdd::g(int input) {
 
 	// determine if odd
-	return (bool)(input % 2);
+	return !(bool)(input % 2);
 
 }
