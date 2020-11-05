@@ -2,6 +2,7 @@
 #ifndef _REDUCEGENERIC_H
 #define _REDUCEGENERIC_H
 
+#include <iostream>
 #include <vector>
 
 class ReduceGeneric {
