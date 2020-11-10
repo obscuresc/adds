@@ -2,6 +2,7 @@
 
 #include "Player.h"
 #include "Human.h"
+#include "Computer.h"
 
 int main(int argc, char* argv[]) {
 

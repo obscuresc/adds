@@ -1,4 +1,5 @@
-#ifndef _ENUM_MOVES
+#ifndef _TYPES_H_
+#define _TYPES_H_ 
 enum Move : int {
 
 	rock,
@@ -6,4 +7,4 @@ enum Move : int {
 	scissors
 };
 
-#endif // _ENUM_MOVES
+#endif // _TYPES_H 
