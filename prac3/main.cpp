@@ -8,6 +8,7 @@
 #include "RandomComputer.h"
 #include "Avalanche.h"
 #include "Bureaucrat.h"
+#include "Tournament.h"
 
 int main(int argc, char* argv[]) {
 
@@ -25,20 +26,20 @@ int main(int argc, char* argv[]) {
 		if(strcmp(argv[i], "Avalanche") == 0) {
 
 			pPlayer = new Avalanche();
-			tournament.enterPlayer(pPlayer);
+			Tournament::enterPlayer(pPlayer);
 		}
 
 		else if(strcmp(argv[i], "Bureaucrat") == 0) {
 
 			pPlayer = new Bureaucrat();
-			tournament.enterPlayer(pPlayer);
+			Tournament::enterPlayer(pPlayer);
 
 		}
 
 		else if(strcmp(argv[i], "Computer") == 0) {
 
 			pPlayer = new Computer();
-			tournament.enterPlayer(pPlayer);
+			Tournament::enterPlayer(pPlayer);
 
 		}
 
@@ -50,7 +51,10 @@ int main(int argc, char* argv[]) {
 
 	}
 
-	std::cout << argv[0] << std::endl;
+	Tournament::compete();
+	Player* pWinner = Tournament::getWinner();
+	std::cout << "Winner name" << std::endl;
 
 	return 0;
+
 }

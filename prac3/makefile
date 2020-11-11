@@ -5,7 +5,7 @@ CC = g++
 CFLAGS = -std=c++11 -Wall -Werror -Wextra -pedantic
 
 ### project settings ###
-SRCS = main Player Human Computer RandomComputer Bureaucrat
+SRCS = main Player Human Computer RandomComputer Bureaucrat Tournament
 OBJS = $(SRCS:=.o)
 EXE = main
 
