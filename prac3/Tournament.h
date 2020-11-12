@@ -2,6 +2,8 @@
 #ifndef _TOURNAMENT_H
 #define _TOURNAMENT_H
 
+#include <vector>
+
 #include "Player.h"
 
 class Tournament {
@@ -9,11 +11,11 @@ class Tournament {
 	public:
 		static void enterPlayer(Player*);	
 		static void compete();
-		static Player* getWinner();
+		static int getWinner();
 
 	private:
 		Tournament() {};
-		std::vector<Player*> playerDraw;
+		static std::vector<Player*> playerDraw;
 	
 };
 

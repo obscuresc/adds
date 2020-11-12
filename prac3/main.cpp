@@ -10,6 +10,21 @@
 #include "Bureaucrat.h"
 #include "Tournament.h"
 
+// print function for returning class name
+inline std::string className(const std::string& prettyFunction)
+{
+    size_t colons = prettyFunction.find("::");
+    if (colons == std::string::npos)
+        return "::";
+    size_t begin = prettyFunction.substr(0,colons).rfind(" ") + 1;
+    size_t end = colons - begin;
+
+    return prettyFunction.substr(begin,end);
+}
+
+#define __CLASS_NAME__ className(__PRETTY_FUNCTION__)
+
+
 int main(int argc, char* argv[]) {
 
 	// function guard
@@ -45,16 +60,15 @@ int main(int argc, char* argv[]) {
 
 		else {
 
-			std::cout << "Invalid player given" << std::endl;
+			std::cout << "Invalid player name given at argument: " << i;
+			std::cout << std::endl;
 			return -1;
 		}
 
 	}
 
 	Tournament::compete();
-	Player* pWinner = Tournament::getWinner();
-	std::cout << "Winner name" << std::endl;
-
+	std::cout << "Winner name: " << argv[Tournament::getWinner()] << std::endl;
 	return 0;
 
 }

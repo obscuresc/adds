@@ -1,6 +1,8 @@
 // Tournament.cpp
 #include "Tournament.h"
 
+std::vector<Player*> Tournament::playerDraw;
+
 void Tournament::enterPlayer(Player* newPlayer) {
 
 	// insert player into draw
@@ -14,7 +16,7 @@ void Tournament::compete() {
 
 }
 
-Player* Tournament::getWinner() {
+int Tournament::getWinner() {
 
-	return new Player();
+	return 3;
 }
