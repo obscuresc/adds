@@ -8,21 +8,11 @@
 #include "RandomComputer.h"
 #include "Avalanche.h"
 #include "Bureaucrat.h"
+#include "Crescendo.h"
+#include "PaperDoll.h"
+#include "FistfullODollars.h"
+#include "Toolbox.h"
 #include "Tournament.h"
-
-// print function for returning class name
-inline std::string className(const std::string& prettyFunction)
-{
-    size_t colons = prettyFunction.find("::");
-    if (colons == std::string::npos)
-        return "::";
-    size_t begin = prettyFunction.substr(0,colons).rfind(" ") + 1;
-    size_t end = colons - begin;
-
-    return prettyFunction.substr(begin,end);
-}
-
-#define __CLASS_NAME__ className(__PRETTY_FUNCTION__)
 
 
 int main(int argc, char* argv[]) {
@@ -54,6 +44,41 @@ int main(int argc, char* argv[]) {
 		else if(strcmp(argv[i], "Computer") == 0) {
 
 			pPlayer = new Computer();
+			Tournament::enterPlayer(pPlayer);
+
+		}
+
+		else if(strcmp(argv[i], "Crescendo") == 0) {
+
+			pPlayer = new Crescendo();
+			Tournament::enterPlayer(pPlayer);
+
+		}
+
+		else if(strcmp(argv[i], "FistfullODollars") == 0) {
+
+			pPlayer = new FistfullODollars();
+			Tournament::enterPlayer(pPlayer);
+
+		}
+
+		else if(strcmp(argv[i], "PaperDoll") == 0) {
+
+			pPlayer = new PaperDoll();
+			Tournament::enterPlayer(pPlayer);
+
+		}
+
+		else if(strcmp(argv[i], "RandomComputer") == 0) {
+
+			pPlayer = new RandomComputer();
+			Tournament::enterPlayer(pPlayer);
+
+		}
+
+		else if(strcmp(argv[i], "Toolbox") == 0) {
+
+			pPlayer = new Toolbox();
 			Tournament::enterPlayer(pPlayer);
 
 		}
