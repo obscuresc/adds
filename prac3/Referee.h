@@ -8,7 +8,9 @@ class Referee {
 
 	public:
 		Player* match(Player*, Player*);
-
+	
+	private:
+		int round(Player*, Player*, int);
 };
 
 #endif // _REFEREE_H
