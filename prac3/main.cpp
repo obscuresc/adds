@@ -13,6 +13,7 @@
 #include "FistfullODollars.h"
 #include "Toolbox.h"
 #include "Tournament.h"
+#include "Referee.h"
 
 
 int main(int argc, char* argv[]) {
