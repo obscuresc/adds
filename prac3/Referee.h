@@ -7,10 +7,10 @@
 class Referee {
 
 	public:
-		Player* match(Player*, Player*);
+		static size_t match(Player*, Player*);
 	
 	private:
-		int round(Player*, Player*, int);
+		static int round(Player*, Player*, int);
 };
 
 #endif // _REFEREE_H

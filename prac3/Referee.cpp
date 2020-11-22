@@ -2,10 +2,12 @@
 #include "Referee.h"
 
 
-Player* Referee::match(Player* player1, Player* player2) {
+size_t Referee::match(Player* player1, Player* player2) {
 
 	// each match is five rounds
 	const int numberOfRounds = 5;
+	const int player1Won = 0;
+	const int player2Won = 1;
 	int matchWinBias = 0;
 	for(size_t roundNum = 0; roundNum < numberOfRounds; roundNum++) {
 
@@ -15,10 +17,10 @@ Player* Referee::match(Player* player1, Player* player2) {
 
 	if(matchWinBias >= 0) {
 
-		return player1;
+		return player1Won;
 	}
 
-	return player2;
+	return player2Won;
 }
 
 int Referee::round(Player* player1, Player* player2, int roundNum) {

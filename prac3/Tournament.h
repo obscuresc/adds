@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "Player.h"
+#include "Referee.h"
 
 class Tournament {
 

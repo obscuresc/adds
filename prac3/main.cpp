@@ -94,7 +94,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	Tournament::compete();
-	std::cout << "Winner name: " << argv[Tournament::getWinner()] << std::endl;
+	std::cout << "Winner name: " << argv[Tournament::getWinner() + 1] << std::endl;
 	return 0;
 
 }
