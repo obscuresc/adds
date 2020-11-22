@@ -18,3 +18,10 @@ int Computer::getMove(int moveID) {
 	else return moves[moveID];
 
 }
+
+
+std::string Computer::getName() {
+
+	return std::string("Computer");
+
+}

@@ -29,11 +29,11 @@ void Tournament::compete() {
 }
 
 
-int Tournament::getWinner() {
+Player* Tournament::getWinner() {
 
 	// function guard
-	if(playerDraw.size() != 1) return -1;
+	if(playerDraw.size() != 1) return (Player*) nullptr;
 
 	// winner should be 0th in the draw	
-	return 0;
+	return playerDraw.at(0);
 }

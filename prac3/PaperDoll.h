@@ -12,6 +12,7 @@ class PaperDoll : public Computer {
 
 	public:
 		PaperDoll();
+		std::string getName() override;
 
 };
 

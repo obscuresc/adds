@@ -12,7 +12,7 @@ class Tournament {
 	public:
 		static void enterPlayer(Player*);	
 		static void compete();
-		static int getWinner();
+		static Player* getWinner();
 
 	private:
 		Tournament() {};

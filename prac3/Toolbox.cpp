@@ -9,3 +9,10 @@ Toolbox::Toolbox() {
 	moves[2] = scissors;
 
 }
+
+
+std::string Toolbox::getName() {
+
+	return std::string("Toolbox");
+
+}

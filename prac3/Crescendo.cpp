@@ -9,3 +9,10 @@ Crescendo::Crescendo() {
 	moves[2] = rock;
 
 }
+
+
+std::string Crescendo::getName() {
+
+	return std::string("Crescendo");
+
+}

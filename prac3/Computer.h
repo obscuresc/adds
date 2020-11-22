@@ -10,6 +10,7 @@ class Computer: public Player {
 	public:
 		Computer();
 		int getMove(int) override;
+		std::string getName() override;
 
 	protected:
 		int moves[3];

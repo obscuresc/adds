@@ -12,3 +12,10 @@ RandomComputer::RandomComputer() {
 	moves[2] = rock;
 
 }
+
+
+std::string RandomComputer::getName() {
+
+	return std::string("RandomComputer");
+
+}

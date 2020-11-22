@@ -12,7 +12,7 @@ class RandomComputer: public Computer {
 
 	public:
 		RandomComputer();
-
+		std::string getName() override;
 };
 
 #endif // _RANDOMCOMPUTER_H

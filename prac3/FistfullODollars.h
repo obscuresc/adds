@@ -12,7 +12,7 @@ class FistfullODollars : public Computer {
 
 	public:
 		FistfullODollars();
-
+		std::string getName() override;
 };
 
 #endif // _FISTFULLODOLLARS_H 

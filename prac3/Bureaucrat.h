@@ -12,7 +12,8 @@ class Bureaucrat : public Computer {
 
 	public:
 		Bureaucrat();
+		std::string getName() override;
 
 };
 
-#endif //r
+#endif // _BUREAUCRAT_H

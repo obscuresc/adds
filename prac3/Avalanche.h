@@ -10,6 +10,8 @@
 
 class Avalanche : public Computer {
 
+	public:
+		std::string getName() override;
 };
 
 #endif // _AVALANCHE_H 

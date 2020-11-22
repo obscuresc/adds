@@ -12,6 +12,7 @@ class Toolbox : public Computer {
 
 	public:
 		Toolbox();
+		std::string getName() override;
 
 };
 

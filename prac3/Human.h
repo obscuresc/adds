@@ -8,6 +8,7 @@ class Human : public Player {
 
 	public:
 		int getMove();
+		std::string getName() override;
 };
 
 #endif // _HUMAN_H

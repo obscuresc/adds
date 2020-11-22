@@ -14,3 +14,9 @@ int Human::getMove() {
 
 }
 
+
+std::string Human::getName() {
+
+	return std::string("Human");
+
+}

@@ -9,3 +9,10 @@ PaperDoll::PaperDoll() {
 	moves[2] = scissors;
 
 }
+
+
+std::string PaperDoll::getName() {
+
+	return std::string("PaperDoll");
+
+}

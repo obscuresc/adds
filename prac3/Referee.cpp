@@ -17,9 +17,15 @@ size_t Referee::match(Player* player1, Player* player2) {
 
 	if(matchWinBias >= 0) {
 
+		#ifdef DEBUG
+			std::cout << "Player 1 won" << std::endl;
+		#endif // DEBUG
 		return player1Won;
 	}
 
+	#ifdef DEBUG
+		std::cout << "Player 2 won" << std::endl;
+	#endif // DEBUG
 	return player2Won;
 }
 

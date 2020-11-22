@@ -8,3 +8,10 @@ Bureaucrat::Bureaucrat() {
 	moves[2] = paper;
 
 }
+
+
+std::string Bureaucrat::getName() {
+
+	return std::string("Bureaucrat");
+
+}

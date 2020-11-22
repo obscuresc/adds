@@ -9,3 +9,10 @@ FistfullODollars::FistfullODollars() {
 	moves[2] = paper;
 
 }
+
+
+std::string FistfullODollars::getName() {
+
+	return std::string("FistfullODollars");
+
+}
